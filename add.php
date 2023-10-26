@@ -1,0 +1,61 @@
+<?php 
+include 'config.php';
+$query=mysqli_query($connect,"SELECT * FROM mahasiswa");
+$data=mysqli_fetch_all($query,MYSQLI_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body{
+            width: 100%;
+            height:100%;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+        h1{
+    font-size: 2em;
+    font-weight: 800;
+    text-transform: capitalize;
+    font-family: sans-serif;
+        }
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+        }
+        form input,form textarea{
+            width:500px;
+            padding:8px 20px;
+            border-radius:1px;
+            border:none;
+            border-bottom:1px solid gray;
+        }
+        form textarea{
+            height:150px;
+        }
+        form button{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>tambah data</h1>
+<form action="insert.php" method="post">
+    <input type="text" name='id' placeholder='id'>
+        <input type="text" name='nim' placeholder='nim'>
+        <input type="text" name='nama' placeholder='nama'>
+        <input type="text" name='jeniskelamin' placeholder='jenis-kelamin'>
+        <textarea type="text" name='alamat' placeholder='alamat'></textarea>
+        <input type="text" name='jurusan' placeholder='jurusan'>
+        <input type="text" name='kelas' placeholder='kelas'>
+        <button type="submit">tambah data</button>
+    </form>
+</body>
+</html>
